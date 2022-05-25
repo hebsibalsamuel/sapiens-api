@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const ThemeData = require("../models/ThemeData");
+const ThemeData = require("../models/themeData");
 
 
 router.get("/", async (req, res) => {
