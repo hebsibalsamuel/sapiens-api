@@ -11,11 +11,21 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get("/:username", async (req, res) => {
+    try {      
+        const userData = await ThemeData.findOne({ userName: req.params.username})
+        res.status(200).json(userData);
+        console.log(userData, req.params.username)
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 router.get("/add", async (req, res) => {
     try {
         const userData = new ThemeData({
-            'userName': 'peter',
-            'colorTheme': 'none'
+            'userName': 'Dave',
+            'colorTheme': 'teal'
         })
         let data = await userData.save()
         res.status(200).json(data);
